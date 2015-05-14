@@ -1,0 +1,9 @@
+---
+# tasks file for py-openstack-dev
+
+name: Update apt-get
+apt: update_cache=yes
+
+- include: openstack-dev.yml
+- include: python-dev.yml
+- include: ceilometer-dev.yml
