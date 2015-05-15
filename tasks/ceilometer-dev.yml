@@ -1,9 +1,10 @@
 ---
 # tasks file for py-openstack-dev
 
-name: Install ceilo dependencies
-apt: name={{ item }} state=latest
-with_items:
+- name: Install ceilo dependencies
+  sudo: yes
+  apt: name={{ item }} state=latest
+  with_items:
     - libmysqlclient-dev
     - npm
     - libffi-dev  # neutron and swift

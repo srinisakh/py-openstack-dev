@@ -1,8 +1,0 @@
----
-# tasks file for py-openstack-dev
-
-name: Install git
-apt: name={{ item }} state=latest
-with_items:
-   - git
-   - git-review

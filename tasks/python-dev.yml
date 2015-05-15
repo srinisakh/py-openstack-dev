@@ -1,0 +1,24 @@
+---
+# tasks file for py-openstack-dev
+- name: Install python
+  sudo: yes
+  apt: name={{ item }} state=latest
+  with_items:
+    - python-dev
+    - python-tox
+
+- name: Create autoload/bundle folders
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.vim/autoload
+    - ~/.vim/bundle
+
+- name: Download pathogen
+  get_url: url=https://tpo.pe/pathogen.vim dest=~/.vim/autoload/
+
+- name: Setup pathogen
+  copy: src=.vimrc dest=~/.vimrc
+
+- name: Setup python-mode
+  git: repo=git://github.com/klen/python-mode.git
+          dest=~/.vim/bundle/python-mode
