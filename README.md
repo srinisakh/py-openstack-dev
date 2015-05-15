@@ -20,7 +20,7 @@ No role dependencies
 
 Example Playbook
 -------------------------
-
+    ---
     - hosts: all
       roles:
         - { role: "py-openstack-dev" }
