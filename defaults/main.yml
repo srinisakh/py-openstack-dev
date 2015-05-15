@@ -1,2 +1,5 @@
 ---
 # defaults file for py-openstack-dev
+
+py_venv_path: ~/openstack_venv
+source_path: ~/openstack_src
