@@ -10,7 +10,7 @@
 
 - name: Install python tools
   sudo: yes
-  pip: name={{ itam }} state=latest
+  pip: name={{ item }} state=latest
   with_items:
     - ipython
     - autoenv
