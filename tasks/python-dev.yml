@@ -6,6 +6,24 @@
   with_items:
     - python-dev
     - python-tox
+    - ipython
+
+- name: Install python tools
+  sudo: yes
+  pip: name={{ itam }} state=latest
+  with_items:
+    - ipython
+    - autoenv
+    - cookiecutter
+
+- name: Install git bash prompt
+  git: repo=https://github.com/magicmonty/bash-git-prompt.git dest=~/.bash-git-prompt
+
+- name: Copy the config shell script
+  copy: src=bash-git-config.sh dest=~/.bash-git-prompt
+
+- name: Enable bash-git-prompt
+  lineinfile: dest=~/.bashrc line="source ~/.bash-git-prompt/bash-git-config.sh"
 
 - name: Create autoload/bundle folders
   file: path={{ item }} state=directory
