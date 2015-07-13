@@ -7,6 +7,7 @@
     - python-dev
     - python-tox
     - ipython
+    - python-pip
 
 - name: Install python tools
   sudo: yes
@@ -40,3 +41,4 @@
 - name: Setup python-mode
   git: repo=git://github.com/klen/python-mode.git
           dest=~/.vim/bundle/python-mode
+          accept_hostkey=yes
